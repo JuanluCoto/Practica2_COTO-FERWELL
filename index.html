@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Consultora Adrian y Jaime</title>
+    <link rel="shortcut icon" href="images/logo.png">
+
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS de Bootstrap -->
+    <link href="bootstrap-3.3.5-dist/css/bootstrap.css" rel="stylesheet">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap-theme.css">
+
+    <link type="text/css" rel="stylesheet" href="css/estilo.css" />
+    <script type="text/javascript" src="js/objetos.js"></script>
+    <script type="text/javascript" src="js/codigo.js"></script>
+</head>
+<body>
+
+<div id="logo" class="col-sm-12">
+    <img src="images/logo.jpg"/>
+</div>
+<div id="mostrarLogin">
+    <div class = "col-sm-4 col-sm-offset-4">
+        <h5>Cuenta de prueba admin ; email = "admin@a.aaa" Contraseña = "a"</h5>
+        <h5>Cuenta de prueba cliente particular ; email = "particular@p.ppp" Contraseña = "p"</h5>
+        <h5>Cuenta de prueba cliente empresa ; email = "empresa@e.eee" Contraseña = "e"</h5>
+    </div>
+    <form role="form" name="formLogin" id="formLogin" class="col-sm-4 col-sm-offset-4">
+        <div class="form-group">
+            <label for="email_login">Correo Electrónico</label>
+            <input type="text" class="form-control" id="email_login" name="email_login" placeholder="Introduzca su correo electrónico">
+        </div>
+        <div class="form-group">
+            <label for="contraseña_login">Contraseña</label>
+            <input type="password" class="form-control" id="contraseña_login" name="contraseña_login" placeholder="Introduzca su contraseña">
+        </div>
+        <button type="button" id="aceptarLogin" class="btn btn-default col-sm-6">Entrar</button>
+        <button type="button" id="btnRegistro" class="btn btn-default col-sm-6">Crear cliente</button>
+    </form>
+</div>
+<!---------------MENUS DE ADMINISTRADOR----------------->
+<div id="mostrarMenuAdmin" class="col-sm-2 col-sm-offset-5">
+    <table class="table table-hover menu">
+        <tr>
+            <td class="text-center">Clientes</td>
+        </tr>
+        <tr>
+            <td class="text-center">Empleados</td>
+        </tr>
+        <tr>
+            <td class="text-center">Proyectos</td>
+        </tr>
+        <tr>
+            <td class="text-center">Presupuestos</td>
+        </tr>
+        <tr>
+            <td class="text-center">Listar pedidos</td>
+        </tr>
+    </table>
+    <button type="button" class="btn btn-default col-sm-12">Volver</button>
+</div>
+<!--//////CLIENTES//////-->
+<div id="mostrarListadoClientes" class="container">
+    <button type="button" name="volver" class="volver btn btn-default col-sm-2 col-sm-offset-5">Volver</button>
+</div>
+<!--//////PROYECTOS//////-->
+<div id="datosProyecto">
+    <h1 class="col-sm-4 col-sm-offset-4">Datos Proyecto</h1>
+    <form role="form" name="formProyecto" id="formProyecto" class="col-sm-3 col-sm-offset-4">
+        <div class="form-group">
+            <label for="nombre_proyecto">Nombre</label>
+            <input type="text" class="form-control" id="nombre_proyecto" placeholder="Nombre del proyecto">
+        </div>
+        <div class="form-group">
+            <label for="descripcion_proyecto">Descripción</label>
+            <textarea id="descripcion_proyecto" class="form-control" cols="30" rows="3" placeholder="Descripción del proyecto"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="fecha_inicio_proyecto">Fecha de inicio (DD-MM-AAAA)</label>
+            <input type="text" class="form-control" id="fecha_inicio_proyecto" placeholder="Fecha de inicio">
+        </div>
+        <div class="form-group">
+            <label for="fecha_final_proyecto">Fecha de finalización (DD-MM-AAAA)</label>
+            <input type="text" class="form-control" id="fecha_final_proyecto" placeholder="Fecha de finalización">
+        </div>
+        <div class="form-group">
+            <label>Estado (aprobado o no aprobado)</label>
+            <br>
+            <label class="radio-inline">
+                <input type="radio" name="rbtProyecto" id="radioAprobado" value="aprobado">
+                Aprobado
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="rbtProyecto" id="radioPendiente" value="pendiente" checked>
+                Pendiente de aprobación
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="COD_almacen">Código de almacén asignado</label>
+            <input type="text" class="form-control" id="COD_almacen" placeholder="Introduzca el código de almacen" maxlength="3">
+        </div>
+        <button type="button" id="cargar_proyecto" class="btn btn-default col-sm-12">Cargar proyecto</button>
+        <button type="button" id="crear_proyecto" class="btn btn-default col-sm-12">Crear proyecto</button>
+        <button type="button" id="actualizar_proyecto" class="btn btn-default col-sm-12">Actualizar proyecto</button>
+        <button type="button" id="eliminar_proyecto" class="btn btn-default col-sm-12">Eliminar proyecto</button>
+        <button type="button" id="asignarPersonal_proyecto" class="btn btn-default col-sm-12">Asignar personal a proyecto</button>
+        <button type="button" id="listar_proyectos" class="btn btn-default col-sm-12">Listar proyectos</button>
+        <button type="button" id="volver_proyecto" class="btn btn-default col-sm-12">Volver</button>
+    </form>
+</div>
+<div id="mostrarListadoProyectos" class="container">
+    <button type="button" name="volver" class="volver btn btn-default col-sm-2 col-sm-offset-5">Volver</button>
+</div>
+<!--//////PRESUPUESTOS//////-->
+<div id="datosPresupuesto">
+    <h1 class="col-sm-4 col-sm-offset-4">Datos Presupuesto</h1>
+    <form role="form" name="formPresupuesto" id="formPresupuesto" class="col-sm-3 col-sm-offset-4">
+        <div class="form-group">
+            <label for="COD_presupuesto">Código de presupuesto</label>
+            <input type="text" class="form-control" id="COD_presupuesto" placeholder="Código del presupuesto">
+        </div>
+        <div class="form-group">
+            <label for="total_presupuesto">Total del presupuesto</label>
+            <input type="text" class="form-control" id="total_presupuesto" placeholder="Total del presupuesto">
+        </div>
+        <div class="form-group">
+            <label>Estado (aprobado o no aprobado)</label>
+            <br>
+            <label class="radio-inline">
+                <input type="radio" name="rbtProyecto" id="radioPresupuestoAprobado" value="aprobado">
+                Aprobado
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="rbtProyecto" id="radioPresupuestoPendiente" value="pendiente" checked>
+                Pendiente de aprobación
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="fecha_presupuesto">Fecha de emisión de presupuesto (DD-MM-AAAA)</label>
+            <input type="text" class="form-control" id="fecha_presupuesto" placeholder="Fecha de emisión de presupuesto">
+        </div>
+        <div class="form-group">
+            <label for="email_cliente_presupuesto">Email de cliente</label>
+            <input type="text" id="email_cliente_presupuesto" class="form-control" placeholder="Email de cliente">
+        </div>
+        <div class="form-group">
+            <label for="nombreProyecto_presupuesto">Nombre de proyecto</label>
+            <input type="text" class="form-control" id="nombreProyecto_presupuesto" placeholder="Nombre de proyecto">
+        </div>
+        <div class="form-group">
+            <label for="COD_factura_presupuesto">Código de factura</label>
+            <input type="text" class="form-control" id="COD_factura_presupuesto" placeholder="Introduzca el código de factura" maxlength="3">
+        </div>
+        <button type="button" id="cargar_presupuesto" class="btn btn-default col-sm-12">Cargar presupuesto</button>
+        <button type="button" id="crear_presupuesto" class="btn btn-default col-sm-12">Crear presupuesto</button>
+        <button type="button" id="actualizar_presupuesto" class="btn btn-default col-sm-12">Actualizar presupuesto</button>
+        <button type="button" id="eliminar_presupuesto" class="btn btn-default col-sm-12">Eliminar presupuesto</button>
+        <button type="button" id="listar_presupuestoproyectos" class="btn btn-default col-sm-12">Listar presupuestos</button>
+        <button type="button" id="volver_presupuesto" class="btn btn-default col-sm-12">Volver</button>
+    </form>
+</div>
+<div id="mostrarListadoPresupuesto" class="container">
+    <button type="button" name="volver" class="volver btn btn-default col-sm-2 col-sm-offset-5">Volver</button>
+</div>
+<!---------------MENUS DE CLIENTE Y ADMIN----------------->
+<div id="altaCliente">
+    <h1 class="col-sm-4 col-sm-offset-5">Alta Cliente</h1>
+    <form role="form" name="formCliente" id="formCliente" class="col-sm-2 col-sm-offset-5">
+        <div>
+            <label class="radio-inline">
+                <input type="radio" name="rbtCliente" id="radioParticular" value="particular" checked>
+                Particular
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="rbtCliente" id="radioEmpresa" value="empresa">
+                Empresa
+            </label>
+        </div>
+        <br>
+        <div class="form-group" id="DNICliente">
+            <label for="DNI_cliente">DNI</label>
+            <input type="text" class="form-control" id="DNI_cliente" name="dni_cliente" placeholder="Introduzca su DNI" maxlength="9">
+        </div>
+        <div class="form-group" id="div_NIF_empresa">
+            <label for="NIF_empresa">NIF</label>
+            <input type="text" class="form-control" id="NIF_empresa" name="NIF_empresa" placeholder="NIF de su empresa" maxlength="9">
+        </div>
+        <div class="form-group" id="nombreCliente">
+            <label for="nombre_cliente">Nombre</label>
+            <input type="text" class="form-control" id="nombre_cliente" name="nombre_cliente" placeholder="Introduzca su nombre">
+        </div>
+        <div class="form-group" id="div_nombre_empresa">
+            <label for="nombre_empresa">Nombre</label>
+            <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" placeholder="Nombre de su empresa">
+        </div>
+        <div class="form-group" id="apellidosCliente">
+            <label for="apellidos_cliente">Apellidos</label>
+            <input type="text" class="form-control" id="apellidos_cliente" name="apellidos_cliente" placeholder="Introduzca sus apellidos">
+        </div>
+        <div class="form-group">
+            <label for="direccion_cliente">Dirección</label>
+            <input type="text" class="form-control" id="direccion_cliente" name="direccion_cliente" placeholder="Introduzca su dirección">
+        </div>
+        <div class="form-group">
+            <label for="telefono_cliente">Teléfono</label>
+            <input type="text" class="form-control" id="telefono_cliente" name="telefono_cliente" placeholder="Introduzca su número de teléfono" maxlength="9">
+        </div>
+        <div class="form-group">
+            <label for="email_cliente">Email</label>
+            <input type="text" class="form-control" id="email_cliente" name="email_cliente" placeholder="Introduzca su email">
+        </div>
+        <div class="form-group">
+            <label for="contraseña_cliente">Contraseña</label>
+            <input type="password" class="form-control" id="contraseña_cliente" name="contraseña_cliente" placeholder="Introduzca una contraseña">
+        </div>
+        <button type="button" id="enviarCliente" class="btn btn-default col-sm-12">Enviar</button>
+        <button type="button" id="volver_altaCliente" class="btn btn-default col-sm-12">Volver</button>
+    </form>
+</div>
+<div id="datosCliente">
+    <h1 class="col-sm-4 col-sm-offset-5">Datos Cliente</h1>
+    <form role="form" name="formDatosCliente" id="formDatosCliente" class="col-sm-2 col-sm-offset-5">
+        <div class="form-group" id="DNIDatosCliente">
+            <label for="DNI_DatosCliente">DNI</label>
+            <input type="text" class="form-control" id="DNI_DatosCliente" maxlength="9">
+        </div>
+        <div class="form-group" id="div_NIF_DatosEmpresa">
+            <label for="NIF_DatosEmpresa">NIF</label>
+            <input type="text" class="form-control" id="NIF_DatosEmpresa" maxlength="9">
+        </div>
+        <div class="form-group" id="nombreDatosCliente">
+            <label for="nombre_DatosCliente">Nombre</label>
+            <input type="text" class="form-control" id="nombre_DatosCliente">
+        </div>
+        <div class="form-group" id="div_nombre_DatosEmpresa">
+            <label for="nombre_DatosEmpresa">Nombre</label>
+            <input type="text" class="form-control" id="nombre_DatosEmpresa">
+        </div>
+        <div class="form-group" id="apellidosDatosCliente">
+            <label for="apellidos_DatosClient">Apellidos</label>
+            <input type="text" class="form-control" id="apellidos_DatosClient">
+        </div>
+        <div class="form-group">
+            <label for="direccion_DatosCliente">Dirección</label>
+            <input type="text" class="form-control" id="direccion_DatosCliente">
+        </div>
+        <div class="form-group">
+            <label for="telefono_DatosCliente">Teléfono</label>
+            <input type="text" class="form-control" id="telefono_DatosCliente" maxlength="9">
+        </div>
+        <div class="form-group">
+            <label for="email_DatosCliente">Email</label>
+            <input type="text" class="form-control" id="email_DatosCliente">
+        </div>
+        <div class="form-group">
+            <label for="contraseña_DatosCliente">Contraseña</label>
+            <input type="password" class="form-control" id="contraseña_DatosCliente">
+        </div>
+        <button type="button" id="cargarDatosClienteAdmin" class="btn btn-default col-sm-12">Cargar datos por email</button>
+        <button type="button" id="crearClienteAdmin" class="btn btn-default col-sm-12">Crear cliente</button>
+        <button type="button" id="actualizarDatosCliente" class="btn btn-default col-sm-12">Actualizar datos</button>
+        <button type="button" id="eliminarCliente" class="btn btn-default col-sm-12">Eliminar cliente</button>
+        <button type="button" id="listarClientes" class="btn btn-default col-sm-12">Listar clientes</button>
+        <button type="button" class="volver btn btn-default col-sm-12">Volver</button>
+    </form>
+</div>
+
+<!---------------MENUS DE TRABAJADOR Y ADMIN----------------->
+<div id="mostrarTrabajador" >
+    <h1 class="col-sm-4 col-sm-offset-5">Alta Trabajador</h1>
+    <form role="form" name="formTrabajador" id="formTrabajador" class="col-sm-2 col-sm-offset-5">
+        <div class="form-group">
+            <label for="dni_Trabajador">DNI</label>
+            <input type="text" class="form-control" id="dni_Trabajador" name="dni_Trabajador" placeholder="Introduce DNI">
+        </div>
+        <div class="form-group">
+            <label for="nombre_Trabajador">Nombre</label>
+            <input type="text" class="form-control" id="nombre_Trabajador" name="nombre_Trabajador" placeholder="Introduce tu nombre">
+        </div>
+        <div class="form-group">
+            <label for="apellidos_Trabajador">Apellidos</label>
+            <input type="text" class="form-control" id="apellidos_Trabajador" name="apellidos_Trabajador" placeholder="Introduce tus apellidos">
+        </div>
+        <div class="form-group">
+            <label for="telefono_Trabajador">Telefono</label>
+            <input type="text" class="form-control" id="telefono_Trabajador" name="telefono_Trabajador" placeholder="Introduce tu nº de teléfono">
+        </div>
+        <button type="button" id="enviarTrabajador" class="btn btn-default col-sm-6">Enviar</button>
+        <button type="reset" class="btn btn-default col-sm-6">Borrar</button>
+        <button type="button" name="volver" class="btn btn-default col-sm-12">Volver</button>
+    </form>
+</div>
+
+</body>
+</html>

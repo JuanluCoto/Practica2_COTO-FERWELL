@@ -1,0 +1,43 @@
+/*#007BBF -- AZUL
+#F9A11B -- AMARILLO
+#4C9E45 -- VERDE*/
+
+body{
+    background-image: url("../images/fondo1.jpg");
+    background-size: cover;
+}
+#logo img{
+    width: 350px;
+    margin-top: 20px;
+}
+.menu th{
+    background-color: #007BBF ;
+    padding: 15px;
+    font-size: 15pt;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+}
+.menu td{
+    background-color: #4C9E45 ;
+    padding: 8px;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    cursor: pointer;
+}
+.menu td:hover{
+    font-size: 14pt;
+}
+h1{
+    color:#007BBF;
+}
+label{
+    color:#4C9E45;
+}
+#menu .listados{
+    display: none;
+}
+.error{
+    background-color: yellow;
+}
